@@ -20,7 +20,7 @@ path = os.path.isdir(os.getenv("HOME") + '/.dockerOrNot')
 def setImages():
 
     if not(path):
-        os.makedirs(path)
+        os.makedirs(str(path))
         Logger.debug('no .dockerOrNot ... creating it')
         #in Docker image
     urllib.request.urlretrieve(url + str(inDocker['image']), str(path) + str(inDocker['image']))
