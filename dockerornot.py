@@ -15,28 +15,30 @@ notInDocker = {'code': 200, 'image': 'inception.ansi'}
 inDocker = {'code': 100, 'image': 'docker.ansi'}
 url = 'https://raw.githubusercontent.com/mfy2a/dockerornot/master/images/'
 
+path = os.path.isdir(os.getenv("HOME") + '/.dockerOrNot')
+
 def setImages():
 
-    if not(os.path.isdir(os.getenv("HOME") + '/.dockerOrNot')):
-        os.makedirs(os.getenv("HOME") + '/.dockerOrNot')
+    if not(path):
+        os.makedirs(path)
         Logger.debug('no .dockerOrNot ... creating it')
         #in Docker image
-    urllib.request.urlretrieve(url + str(inDocker['image']), os.getenv("HOME") + '/.dockerOrNot/' + str(inDocker['image']))
+    urllib.request.urlretrieve(url + str(inDocker['image']), str(path) + str(inDocker['image']))
 
         #NOT in Docker image
-    urllib.request.urlretrieve(url + str(notInDocker['image']), os.getenv("HOME") + '/.dockerOrNot/' + str(notInDocker['image']))
+    urllib.request.urlretrieve(url + str(notInDocker['image']), str(path) + str(notInDocker['image']))
 
 
 def amIDreaming():
     setImages()
     if not(os.path.exists('/.dockerinit')):
         Logger.info('not in Docker')
-        with open(os.getenv("HOME") + '/.dockerOrNot/' + str(notInDocker['image']), encoding="ascii") as txt:
+        with open(str(path) + str(notInDocker['image']), encoding="ascii") as txt:
             Logger.info(txt.read())
         sys.exit(notInDocker['code'])
     else:
         Logger.info('in Docker')
-        with open(os.getenv("HOME") + '/.dockerOrNot/' + str(inDocker['image']), encoding="ascii") as txt:
+        with open(str(path) + str(inDocker['image']), encoding="ascii") as txt:
             Logger.info(txt.read())
         sys.exit(inDocker['code'])
 
