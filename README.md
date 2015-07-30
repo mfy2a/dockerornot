@@ -16,7 +16,6 @@ return 100 if in docker - 200 if not
 
 to have an ASCII ART image
 
-
 you can edit the conf part to change ASCII (use images in 'images' folder) and the return code
     notInDocker = {'code': 200, 'image': 'inception.ansi'}
     inDocker = {'code': 100, 'image': 'docker.ansi'}
