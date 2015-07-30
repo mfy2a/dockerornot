@@ -18,3 +18,7 @@ to have an ASCII ART image you can edit the conf part to change ASCII (use image
 
     notInDocker = {'code': 200, 'image': 'inception.ansi'}
     inDocker = {'code': 100, 'image': 'docker.ansi'}
+
+![Docker](https://raw.githubusercontent.com/mfy2a/dockerornot/master/sample/docker.png)
+
+![Inception](https://raw.githubusercontent.com/mfy2a/dockerornot/master/sample/inception.png)
