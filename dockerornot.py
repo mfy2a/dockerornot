@@ -21,10 +21,10 @@ def setImages():
         os.makedirs(os.getenv("HOME") + '/.dockerOrNot')
         Logger.debug('no .dockerOrNot ... creating it')
         #in Docker image
-        urllib.request.urlretrieve(url + str(inDocker['image']), os.getenv("HOME") + '/.dockerOrNot/' + str(inDocker['image']))
+    urllib.request.urlretrieve(url + str(inDocker['image']), os.getenv("HOME") + '/.dockerOrNot/' + str(inDocker['image']))
 
         #NOT in Docker image
-        urllib.request.urlretrieve(url + str(notInDocker['image']), os.getenv("HOME") + '/.dockerOrNot/' + str(notInDocker['image']))
+    urllib.request.urlretrieve(url + str(notInDocker['image']), os.getenv("HOME") + '/.dockerOrNot/' + str(notInDocker['image']))
 
 
 def amIDreaming():
